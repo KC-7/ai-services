@@ -9,11 +9,12 @@
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" />
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}"
-        type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/changed.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}" type="text/css">
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.css') }}" type="text/css"> -->
     <title>KC-7 &trade;</title>
 </head>
@@ -39,20 +40,22 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="{{ url_for('about') }}">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                            href="{{ url_for('contact') }}">Blog</a></li>
+                            href="{{ url_for('contact') }}">Contact</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                                    href="{{ url_for('blog') }}">Blog</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <!-- Masthead-->
-    <header class="masthead bg-primary text-white text-center" style="background-image: url('{{ url_for('static', filename='img/unnamed.png') }}'); 
+    <header class="masthead bg-primary text-white text-center" style="background-image: url('{{ url_for('static', filename='img/unnamed1.png') }}'); 
         background-size: cover; background-position: center center; background-repeat: no-repeat; width: 100vw;">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5 rounded-circle move-forward" src="{{url_for('static', filename='img/avatar.png')}}" alt="KC-7's Avatar">
+            <img class="masthead-avatar mb-5 rounded-circle move-forward" src="{{url_for('static', filename='img/avatar1.png')}}" alt="KC-7's Avatar">
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0 move-forward">Kieran @ KC-7</h1>
+            <h1 class="masthead-heading text-uppercase mb-0 move-forward">KC-7 | AI Services</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light move-forward">
                 <div class="divider-custom-line"></div>
@@ -61,7 +64,7 @@
             </div>
             <!-- Masthead Subheading-->
             <p class="masthead-subheading font-weight-light mb-0 move-forward">
-                Certified Full Stack Developer specialized in E-Commerce Applications
+                Certified Full Stack Developer (E-Commerce Applications) Specialized in Artificial Intelligence
                 <br>
                 <a href="https://github.com/kc-7" target="_blank" class="custom-link">
                     <i class="fab fa-github"></i> Check out my GitHub Page!
@@ -121,8 +124,7 @@
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="{{ url_for('static', filename='js/clean-blog.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/mouse-effect.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
 
     <script>
         $("#copyright").text(new Date().getFullYear());
