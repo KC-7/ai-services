@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.col-md-5 img {
+    width: 100%;
+    border-radius: 25px;
+}
+
+/* Used for user feedback after sumbitting contact form */
+.flashes {
+    list-style-type: none;
+    color: red;
+    font-size: xx-large;
+    font-family: Arial, Helvetica, sans-serif;
+}
