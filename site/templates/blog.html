@@ -1,32 +1,76 @@
 {% extends "base.html" %}
 
-{% block title %}AI Blog{% endblock %}
+{% block title %}AI Blog | Insights and Trends{% endblock %}
 
 {% block content %}
-<section id="blog-overview">
-    <h1>Stay Updated with Our Blog</h1>
-    <p>Get the latest insights on how AI can revolutionize small and medium businesses. We regularly publish articles on new AI trends, case studies, and how-to guides.</p>
+<section id="blog-hero" class="text-center py-5 bg-light">
+    <div class="container">
+        <h1 class="display-4">AI Blog</h1>
+        <p class="lead">Stay informed with the latest insights, trends, and guides on AI for small businesses.</p>
+    </div>
 </section>
 
-<section id="blog-posts">
-    <article>
-        <h2><a href="/blog/ai-for-business">How AI Can Revolutionize Your Small Business</a></h2>
-        <p>AI is no longer a luxury for big companies. Learn how small businesses can leverage AI to streamline operations, enhance customer experiences, and increase profitability.</p>
-    </article>
+<section id="blog-posts" class="py-5">
+    <div class="container">
+        <!-- Blog Post 1 -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{url_for('static', filename='img/placeholder.png')}}" alt="AI in Small Business">
+            </div>
+            <div class="col-md-6">
+                <h2><a href="/blog/ai-revolution-small-business">How AI Can Revolutionize Your Small Business</a></h2>
+                <p>Discover how AI tools like chatbots and data analysis can help small businesses streamline operations and improve customer satisfaction.</p>
+                <a href="/blog/ai-revolution-small-business" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
 
-    <article>
-        <h2><a href="/blog/ai-chatbots">Chatbots: The Future of Customer Service</a></h2>
-        <p>Explore how AI-powered chatbots can provide 24/7 customer support, improving customer satisfaction while saving your business time and money.</p>
-    </article>
-    
-    <article>
-        <h2><a href="/blog/ai-for-business">How AI Can Revolutionize Your Small Business</a></h2>
-        <p>AI is no longer a luxury for big companies. Learn how small businesses can leverage AI to streamline operations, enhance customer experiences, and increase profitability.</p>
-    </article>
+        <!-- Blog Post 2 -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6 order-md-2">
+                <img class="img-fluid" src="{{url_for('static', filename='img/placeholder.png')}}" alt="Chatbots and AI">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <h2><a href="/blog/ai-chatbots-customer-service">Chatbots: The Future of Customer Service</a></h2>
+                <p>Explore how AI-powered chatbots are changing the landscape of customer service by providing 24/7 support and improving response times.</p>
+                <a href="/blog/ai-chatbots-customer-service" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
 
-    <article>
-        <h2><a href="/blog/ai-chatbots">Chatbots: The Future of Customer Service</a></h2>
-        <p>Explore how AI-powered chatbots can provide 24/7 customer support, improving customer satisfaction while saving your business time and money.</p>
-    </article>
+        <!-- Blog Post 3 -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{url_for('static', filename='img/placeholder.png')}}" alt="AI Content Creation">
+            </div>
+            <div class="col-md-6">
+                <h2><a href="/blog/generative-ai-content-creation">How Generative AI Can Streamline Your Content Creation</a></h2>
+                <p>Learn how AI-generated content can help small businesses produce high-quality articles, social media posts, and more, all while saving time.</p>
+                <a href="/blog/generative-ai-content-creation" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+
+        <!-- Blog Post 4 -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6 order-md-2">
+                <img class="img-fluid" src="{{url_for('static', filename='img/placeholder.png')}}" alt="AI and Automation">
+            </div>
+            <div class="col-md-6 order-md-1">
+                <h2><a href="/blog/ai-automation-business-processes">AI Automation: How It Can Save Time and Money</a></h2>
+                <p>Find out how AI-powered automation tools can optimize business processes, reduce costs, and free up your time to focus on growth.</p>
+                <a href="/blog/ai-automation-business-processes" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+
+        <!-- Blog Post 5 -->
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <img class="img-fluid" src="{{url_for('static', filename='img/placeholder.png')}}" alt="AI Consultation">
+            </div>
+            <div class="col-md-6">
+                <h2><a href="/blog/ai-consultation-for-small-business">Do You Need AI Consultation for Your Small Business?</a></h2>
+                <p>Learn when it's time to bring in AI consultation experts to help you identify opportunities and improve your business strategy with AI.</p>
+                <a href="/blog/ai-consultation-for-small-business" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
 </section>
 {% endblock %}
