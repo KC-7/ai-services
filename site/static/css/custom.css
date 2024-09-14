@@ -1,8 +1,16 @@
 /* styles.css */
 
-/* Padding for Main Container */
+/* Styling for Main Container */
 .container-main {
   padding: 2rem;
+}
+
+.container-main div {
+  padding: 1rem 0;
+}
+
+.contact-form div {
+  padding: 0;
 }
 
 /* Center images horizontally and vertically */
