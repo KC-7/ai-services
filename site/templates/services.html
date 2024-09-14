@@ -1,61 +1,30 @@
 {% extends "base.html" %}
-{% block content%}
 
-<h2>{{ page_title }}</h2>
-<div>
-    <p>Discover the full range of detailing services offered at Auto Spa Scotland. Our experienced technicians
-        specialize in providing the best care for high-end luxury and sports vehicles. From basic washing and waxing to
-        comprehensive packages that include paint correction and ceramic coatings, we have you covered. 
-    </p>    
-    <p>Our state-of-the-art facility is equipped with the latest technology and tools to ensure that your vehicle is in
-        safe hands. Our goal is to provide the ultimate car care experience, with a focus on professionalism, customer
-        service, and long-lasting relationships with our clients. Book your appointment today and let us bring out the
-        best in your vehicle.
-    </p>
-</div>
+{% block title %}Our AI Services{% endblock %}
 
-<hr>
+{% block content %}
+<section id="services-overview">
+    <h1>AI Services Tailored for Your Business</h1>
+    <p>We provide a range of AI solutions that are designed to streamline operations and improve profitability for small and medium-sized businesses. Explore our key services below.</p>
+</section>
 
-<!-- {% for member in company %}
-
-<div class="row featurette">
-
-    {% if loop.index % 2 != 0 %}
-
-    <div class="col-md-7">
-        <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
-        <p>
-            {{ member.description }}
-        </p>
+<section id="service-details">
+    <div class="service-item">
+        <h2>AI-Powered Chatbots</h2>
+        <p>Enhance your customer support with AI-driven chatbots. Available 24/7, they can handle common customer queries, freeing up your team for more complex tasks.</p>
+        <a href="/contact" class="cta">Get a Quote</a>
     </div>
 
-    <div class="col-md-5">
-        <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+    <div class="service-item">
+        <h2>AI Consultation</h2>
+        <p>Not sure where AI fits into your business? We offer expert AI consultation to identify areas where AI can provide the most benefit, from automation to analytics.</p>
+        <a href="/contact" class="cta">Book a Consultation</a>
     </div>
 
-    {% else %}
-
-    <div class="col-md-5">
-        <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+    <div class="service-item">
+        <h2>Generative AI for Content Creation</h2>
+        <p>Streamline your marketing efforts with AI-generated content. From blog posts to social media updates, AI can produce high-quality content in a fraction of the time.</p>
+        <a href="/contact" class="cta">Get a Custom Solution</a>
     </div>
-
-    <div class="col-md-7">
-        <h3><a href="/about/{{ member.url }}">{{ loop.index }}. {{ member.name }}</a></h3>
-        <p>
-            {{ member.description }}
-        </p>
-    </div>
-
-    {% endif %}
-
-</div>
-
-{% if loop.index != loop.length %}
-
-<hr class="featurette-divider"> 
-
-{% endif %}
-
-{% endfor %} -->
-
+</section>
 {% endblock %}

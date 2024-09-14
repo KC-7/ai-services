@@ -42,9 +42,14 @@ def contact():
     return render_template("contact.html", page_title="Contact")
 
 
-@app.route("/careers")
-def careers():
-    return render_template("careers.html", page_title="Careers")
+@app.route("/services")
+def services():
+    return render_template("services.html", page_title="Services")
+
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html', page_title="Blog")
 
 
 if __name__ == "__main__":
