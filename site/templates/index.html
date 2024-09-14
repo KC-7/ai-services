@@ -1,36 +1,76 @@
 {% extends "base.html" %}
 
-{% block title %}AI Solutions for Your Business{% endblock %}
+{% block title %}AI Solutions for Small Businesses | Kieran Collins{% endblock %}
 
 {% block content %}
-<div id="hero">
-    <h1>Transform Your Business with AI</h1>
-    <p>Boost efficiency, cut costs, and scale faster with custom AI solutions tailored to your small business needs.</p>
-    <a href="/contact" class="cta">Get a Free Consultation</a>
-</div>
+<!-- Hero Section -->
+<section id="hero" class="bg-light text-center py-5">
+    <div class="container">
+        <h1 class="display-4">Transform Your Business with AI</h1>
+        <p class="lead">Innovative AI solutions to drive efficiency, growth, and customer satisfaction, tailored for small and medium businesses.</p>
+        <img class="img-fluid mt-5 px-5 rounded-5" src="{{url_for('static', filename='img/index/ai1.jpeg')}}" alt="AI Solutions Image">
+        <a href="/services" class="btn btn-primary btn-lg mt-4 px-5 rounded">Discover Our AI Services</a>
+    </div>
+</section>
 
-<div id="why-ai">
-    <h2>Why Choose AI?</h2>
-    <p>AI is no longer reserved for large corporations. With our affordable and scalable AI solutions, you can:</p>
-    <ul>
-        <li>Automate repetitive tasks</li>
-        <li>Provide 24/7 customer support through chatbots</li>
-        <li>Improve decision-making with data-driven insights</li>
-        <li>Enhance content creation with generative AI</li>
-    </ul>
-    <a href="/services" class="cta">Learn More</a>
-</div>
+<!-- Why AI Section -->
+<section id="why-ai" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2>Why Choose AI?</h2>
+                <p>AI is revolutionizing how businesses operate, enabling you to:</p>
+                <ul>
+                    <li>Reduce operational costs</li>
+                    <li>Boost productivity and efficiency</li>
+                    <li>Provide 24/7 customer service with AI-powered chatbots</li>
+                    <li>Generate high-quality content at scale</li>
+                </ul>
+                <a href="/contact" class="btn btn-primary mt-4">Get a Free Consultation</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/ai2.jpeg')}}" alt="AI Benefits Image">
+            </div>
+        </div>
+    </div>
+</section>
 
-<div id="testimonials">
-    <h2>What Our Clients Say</h2>
-    <blockquote>"Kieran's AI solutions have transformed how we do business. Our customer support has improved dramatically, and we're seeing real savings."</blockquote>
-    <cite>— John Doe, Small Business Owner</cite>
-</div>
+<!-- Testimonials Section -->
+<section id="testimonials" class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center">What Our Clients Are Saying</h2>
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/placeholder.png')}}" alt="Why Choose Me">
+                <blockquote class="blockquote">
+                    <p>"Kieran's AI solutions have transformed our business. We've saved hours of manual work every week."</p>
+                    <footer class="blockquote-footer">Sarah P., Small Business Owner</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/placeholder.png')}}" alt="Why Choose Me">
+                <blockquote class="blockquote">
+                    <p>"Our customer support is now faster, more efficient, and we're seeing real results."</p>
+                    <footer class="blockquote-footer">John D., Startup Founder</footer>
+                </blockquote>
+            </div>
+            <div class="col-md-4 text-center">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/placeholder.png')}}" alt="Why Choose Me">
+                <blockquote class="blockquote">
+                    <p>"The AI solutions provided by Kieran helped us automate our processes seamlessly."</p>
+                    <footer class="blockquote-footer">Emily R., E-commerce Owner</footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
 
-<div id="cta-banner">
-    <h2>Ready to Take the Next Step?</h2>
-    <p>Book a free consultation with us today and discover how AI can revolutionize your business.</p>
-    <a href="/contact" class="cta">Schedule Now</a>
-</div>
-
+<!-- Call to Action Section -->
+<section id="cta" class="text-center py-5">
+    <div class="container">
+        <h2 class="display-5">Ready to Scale Your Business?</h2>
+        <p class="lead">Book a free consultation and discover how AI can transform your business.</p>
+        <a href="/contact" class="btn btn-primary btn-lg">Schedule Now</a>
+    </div>
+</section>
 {% endblock %}

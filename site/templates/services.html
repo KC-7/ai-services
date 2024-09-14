@@ -1,30 +1,67 @@
 {% extends "base.html" %}
 
-{% block title %}Our AI Services{% endblock %}
+{% block title %}AI Services Tailored for Small Businesses | Kieran Collins{% endblock %}
 
 {% block content %}
-<section id="services-overview">
-    <h1>AI Services Tailored for Your Business</h1>
-    <p>We provide a range of AI solutions that are designed to streamline operations and improve profitability for small and medium-sized businesses. Explore our key services below.</p>
+<!-- Services Hero Section -->
+<section id="services-hero" class="text-center bg-light py-5">
+    <div class="container">
+        <h1 class="display-4">AI Services Tailored for Your Business</h1>
+        <p class="lead">We provide cutting-edge AI solutions designed to meet the specific needs of small and medium-sized businesses.</p>
+        <img class="img-fluid mt-4 px-5" src="{{url_for('static', filename='img/services/ui.jpeg')}}" alt="AI Services">
+    </div>
 </section>
 
-<section id="service-details">
-    <div class="service-item">
-        <h2>AI-Powered Chatbots</h2>
-        <p>Enhance your customer support with AI-driven chatbots. Available 24/7, they can handle common customer queries, freeing up your team for more complex tasks.</p>
-        <a href="/contact" class="cta">Get a Quote</a>
-    </div>
+<!-- Service Items Section -->
+<section id="services" class="py-5">
+    <div class="container">
+        <!-- Service 1: AI-Powered Chatbots -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <h2>AI-Powered Chatbots</h2>
+                <p>Enhance customer interaction with AI-driven chatbots. Available 24/7, they can handle common customer queries, freeing up your team for more complex tasks.</p>
+                <a href="/contact" class="btn btn-primary mt-4">Get a Quote</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/services/chatbot.jpeg')}}" alt="Chatbot Service">
+            </div>
+        </div>
 
-    <div class="service-item">
-        <h2>AI Consultation</h2>
-        <p>Not sure where AI fits into your business? We offer expert AI consultation to identify areas where AI can provide the most benefit, from automation to analytics.</p>
-        <a href="/contact" class="cta">Book a Consultation</a>
-    </div>
+        <!-- Service 2: Generative AI for Content Creation -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6 order-md-2">
+                <h2>Generative AI for Content Creation</h2>
+                <p>Streamline your marketing efforts with AI-generated content. From blog posts to social media updates, AI can produce high-quality content in a fraction of the time.</p>
+                <a href="/contact" class="btn btn-primary mt-4">Request a Demo</a>
+            </div>
+            <div class="col-md-6 text-center order-md-1">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/services/laptop.jpeg')}}" alt="Generative AI Content Creation">
+            </div>
+        </div>
 
-    <div class="service-item">
-        <h2>Generative AI for Content Creation</h2>
-        <p>Streamline your marketing efforts with AI-generated content. From blog posts to social media updates, AI can produce high-quality content in a fraction of the time.</p>
-        <a href="/contact" class="cta">Get a Custom Solution</a>
+        <!-- Service 3: AI Consultation -->
+        <div class="row align-items-center mb-5">
+            <div class="col-md-6">
+                <h2>AI Consultation</h2>
+                <p>Not sure how AI fits into your business? Let us guide you with expert AI consulting services. We identify opportunities where AI can provide the most value to your business.</p>
+                <a href="/contact" class="btn btn-primary mt-4">Schedule a Consultation</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/services/meeting.jpeg')}}" alt="AI Consultation">
+            </div>
+        </div>
+
+        <!-- Service 4: Custom AI Solutions -->
+        <div class="row align-items-center">
+            <div class="col-md-6 order-md-2">
+                <h2>Custom AI Solutions</h2>
+                <p>Need a custom AI solution? From data analytics to automation, we build bespoke AI tools designed to solve your unique business challenges.</p>
+                <a href="/contact" class="btn btn-primary mt-4">Learn More</a>
+            </div>
+            <div class="col-md-6 text-center order-md-1">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/services/coding.jpeg')}}" alt="Custom AI Solutions">
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
