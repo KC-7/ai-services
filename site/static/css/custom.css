@@ -1,5 +1,10 @@
 /* styles.css */
 
+/* Padding for Main Container */
+.container-main {
+  padding: 2rem;
+}
+
 /* Center images horizontally and vertically */
 .image-container {
   display: flex;

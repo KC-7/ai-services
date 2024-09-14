@@ -50,10 +50,10 @@
 
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center" style="background-image: url('{{ url_for('static', filename='img/unnamed1.png') }}'); 
-        background-size: cover; background-position: center center; background-repeat: no-repeat; width: 100vw;">
+        background-size: cover; background-position: center center; background-repeat: no-repeat;">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar mb-5 rounded-circle move-forward" src="{{url_for('static', filename='img/avatar1.png')}}" alt="KC-7's Avatar">
+            <img class="masthead-avatar mb-5 rounded-circle move-forward" src="{{url_for('static', filename='img/logo.png')}}" alt="KC-7's Avatar">
             <!-- Masthead Heading-->
             <h1 class="masthead-heading text-uppercase mb-0 move-forward">KC-7 | AI Services</h1>
             <!-- Icon Divider-->
@@ -74,14 +74,12 @@
     </header>
 
     <!-- Main Content -->
-    <div class="container">
+    <div class="container container-main">
 
         {% block content %}
         {% endblock %}
 
     </div>
-
-    <hr>
 
     <!-- Footer-->
     <footer class="footer text-center">
