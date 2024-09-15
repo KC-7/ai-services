@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block content %}
+<section id="blog-post" class="py-5">
+    <div class="container">
+        <h1>{{ blog.title }}</h1>
+        <p><em>Published on {{ blog.date }} by {{ blog.author }}</em></p>
+        <img class="img-fluid mb-5" src="{{ blog.image }}" alt="{{ blog.title }}">
+
+        {% for section in blog.content %}
+        {% if section.type == "paragraph" %}
+        <p>{{ section.text }}</p>
+        {% elif section.type == "header" %}
+        <h3>{{ section.text }}</h3>
+        {% elif section.type == "conclusion" %}
+        <p><strong>{{ section.text }}</strong></p>
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

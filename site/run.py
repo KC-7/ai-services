@@ -1,6 +1,9 @@
 import os
 import json
-from flask import Flask, render_template, request, flash
+from flask import Flask, render_template, jsonify, request, redirect, url_for, flash
+import json
+import math
+
 if os.path.exists("env.py"):
     import env
 
@@ -47,9 +50,37 @@ def services():
     return render_template("services.html", page_title="Services")
 
 
+# Function to load blog data from JSON file
+def load_blog_data():
+    with open('static/data/blog.json') as f:
+        return json.load(f)['blogs']
+
+
+# Blog listing with pagination
 @app.route('/blog')
-def blog():
-    return render_template('blog.html', page_title="Blog")
+def blog_list():
+    page = int(request.args.get('page', 1))  # Get current page number
+    per_page = 5
+    blogs = load_blog_data()
+    total_pages = math.ceil(len(blogs) / per_page)
+
+    # Paginate blogs
+    start = (page - 1) * per_page
+    end = start + per_page
+    paginated_blogs = blogs[start:end]
+
+    return render_template('blog_list.html', blogs=paginated_blogs, page=page, total_pages=total_pages)
+
+
+# Individual blog post
+@app.route('/blog/<slug>')
+def blog_post(slug):
+    blogs = load_blog_data()
+    blog = next((b for b in blogs if b['slug'] == slug), None)
+    if blog:
+        return render_template('blog_post.html', blog=blog)
+    else:
+        return redirect(url_for('blog_list'))
 
 
 if __name__ == "__main__":

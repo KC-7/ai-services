@@ -15,7 +15,6 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}" type="text/css">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/clean-blog.css') }}" type="text/css"> -->
     <title>KC-7 &trade;</title>
 </head>
 
@@ -24,7 +23,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">KC-7 | AI Services</a>
+            <a class="navbar-brand" href="{{ url_for('index') }}">KC-7</a>
             <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
                 data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +41,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="{{ url_for('contact') }}">Contact</a></li>
                             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                    href="{{ url_for('blog') }}">Blog</a></li>
+                                    href="{{ url_for('blog_list') }}">Blog</a></li>
                 </ul>
             </div>
         </div>
@@ -55,7 +54,7 @@
             <!-- Masthead Avatar Image-->
             <img class="masthead-avatar mb-5 move-forward" src="{{url_for('static', filename='img/logo3.png')}}" alt="KC-7's Avatar">
             <!-- Masthead Heading-->
-            <h1 class="masthead-heading text-uppercase mb-0 move-forward">KC-7 | AI Services</h1>
+            <h1 class="masthead-heading text-uppercase mb-0 move-forward">AI Services</h1>
             <!-- Icon Divider-->
             <div class="divider-custom divider-light move-forward">
                 <div class="divider-custom-line"></div>
