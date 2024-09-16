@@ -40,8 +40,8 @@
                             href="{{ url_for('about') }}">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
                             href="{{ url_for('contact') }}">Contact</a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
-                                    href="{{ url_for('blog_list') }}">Blog</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"
+                            href="{{ url_for('blog_list') }}">Blog</a></li>
                 </ul>
             </div>
         </div>
@@ -52,7 +52,8 @@
         background-size: cover; background-position: center center; background-repeat: no-repeat;">
         <div class="container d-flex align-items-center flex-column">
             <!-- Masthead Avatar Image-->
-            <img class="masthead-avatar move-forward" src="{{url_for('static', filename='img/logo3.png')}}" alt="KC-7's Avatar">
+            <img class="masthead-avatar move-forward" src="{{url_for('static', filename='img/logo3.png')}}"
+                alt="KC-7's Avatar">
         </div>
     </header>
 
@@ -94,11 +95,28 @@
             </div>
         </div>
     </footer>
+
     <!-- Copyright Section-->
     <div class="copyright pb-1 text-center text-white">
         <div class="container"><small>KC-7 &trade; <span id="copyright">
-                            <!-- Year Displayed Here --></span> | Remote AI Services Specialist</small></div>
+                    <!-- Year Displayed Here --></span> | Remote AI Services Specialist</small></div>
     </div>
+
+    <!-- Chatbot Button -->
+    <div id="chatbot-button" onclick="openChatbot()">
+        <i class="fas fa-robot"></i>
+    </div>
+
+    <!-- Chatbot Modal -->
+    <div id="chatbot-modal" class="chatbot-modal">
+        <div class="chatbot-modal-content">
+            <span class="chatbot-close" onclick="closeChatbot()">&times;</span>
+            <h2 class="text-light">AI Assistant</h2>
+            <div id="chatbot-messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Type your message..." onkeypress="sendMessage(event)">
+        </div>
+    </div>
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
@@ -106,6 +124,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
 
     <script>
         $("#copyright").text(new Date().getFullYear());

@@ -112,6 +112,25 @@ def blog_post(slug):
         return redirect(url_for('blog_list'))
 
 
+# Chatbot
+@app.route("/chatbot", methods=["POST"])
+def chatbot():
+    user_message = request.json.get('message')
+
+    # Send the user's message to the OpenAI GPT model and get a response
+    try:
+        response = openai.Completion.create(
+            engine="text-davinci-003",  # Use GPT-4 model when you have access, or use "gpt-3.5-turbo" for chat.
+            prompt=user_message,
+            max_tokens=150
+        )
+        chatbot_response = response.choices[0].text.strip()
+    except Exception as e:
+        chatbot_response = "Sorry, there was an error processing your request."
+
+    return jsonify({'response': chatbot_response})
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),

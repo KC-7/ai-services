@@ -195,3 +195,72 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #5a2b96; /* Darker purple for hover effect */
 }
+
+/* Chatbot Button */
+#chatbot-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: teal;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#chatbot-button:hover {
+  background-color: teal;
+}
+
+/* Chatbot Modal */
+.chatbot-modal {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  border-radius: 15px;
+  background-color: #6f42c1;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.chatbot-modal-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+
+.chatbot-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff
+}
+
+#chatbot-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+#chatbot-input {
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #ddddddad;
+  box-sizing: border-box;
+}
+
+.chatbot-message {
+  margin-bottom: 10px;
+}
