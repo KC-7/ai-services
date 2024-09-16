@@ -1,6 +1,7 @@
 import os
 import json
 from flask import Flask, render_template, jsonify, request, redirect, url_for, flash
+from flask_mail import Mail, Message
 import json
 import math
 
@@ -20,10 +21,7 @@ def index():
 
 @app.route("/about")
 def about():
-    data = []
-    with open("data/company.json", "r") as json_data:
-        data = json.load(json_data)
-    return render_template("about.html", page_title="About", company=data)
+    return render_template("about.html", page_title="About")
 
 
 @app.route("/about/<member_name>")
@@ -37,11 +35,36 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
+# Configure Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.your-email-provider.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'your-email@example.com'
+app.config['MAIL_PASSWORD'] = 'your-email-password'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+
+mail = Mail(app)
+
+@app.route('/submit-contact-form', methods=['POST'])
+def submit_contact_form():
+    name = request.form['name']
+    email = request.form['email']
+    phone = request.form['phone']
+    message = request.form['message']
+
+    msg = Message('New Contact Form Submission', sender='your-email@example.com', recipients=['your-email@example.com'])
+    msg.body = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
+    mail.send(msg)
+
+    flash('Your message has been sent successfully!', 'success')
+    return redirect('/contact')
+
+
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
-    if request.method == "POST":
-        flash("Thanks {}, we have received your message!".format(
-            request.form.get("name")))
+    # if request.method == "POST":
+    #     flash("Thanks {}, we have received your message!".format(
+    #         request.form.get("name")))
     return render_template("contact.html", page_title="Contact")
 
 
