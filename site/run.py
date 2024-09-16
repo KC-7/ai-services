@@ -82,17 +82,23 @@ def load_blog_data():
 # Blog listing with pagination
 @app.route('/blog')
 def blog_list():
-    page = int(request.args.get('page', 1))  # Get current page number
+    page = int(request.args.get('page', 1))
+    sort = request.args.get('sort', 'date')
     per_page = 5
     blogs = load_blog_data()
-    total_pages = math.ceil(len(blogs) / per_page)
 
-    # Paginate blogs
+    # Sorting logic
+    if sort == 'title':
+        blogs.sort(key=lambda x: x['title'].lower())
+    elif sort == 'date':
+        blogs.sort(key=lambda x: x['date'], reverse=True)
+
+    total_pages = math.ceil(len(blogs) / per_page)
     start = (page - 1) * per_page
     end = start + per_page
     paginated_blogs = blogs[start:end]
 
-    return render_template('blog_list.html', blogs=paginated_blogs, page=page, total_pages=total_pages)
+    return render_template('blog_list.html', blogs=paginated_blogs, page=page, total_pages=total_pages, sort=sort, max=max, min=min)
 
 
 # Individual blog post
