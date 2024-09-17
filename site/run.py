@@ -5,7 +5,9 @@ import json
 import math
 from flask import Flask, render_template, jsonify, request, redirect, url_for, flash
 from flask_mail import Mail, Message
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email, Length
@@ -32,7 +34,6 @@ app.config['MAIL_USE_SSL'] = os.environ.get('MAIL_USE_SSL', True)
 mail = Mail(app)
 
 # Configure OpenAI
-openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 # Define WTForms for Contact Form
 class ContactForm(FlaskForm):
@@ -159,16 +160,14 @@ def chatbot():
         return jsonify({'response': 'No message provided.'}), 400
 
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "You are an AI assistant for KC-7, a company that offers AI services tailored for businesses. You have comprehensive knowledge about KC-7's website, services, and offerings. Provide accurate and helpful information to users based on their queries."},
-                {"role": "user", "content": user_message}
-            ],
-            max_tokens=150,
-            temperature=0.7
-        )
-        chatbot_response = response['choices'][0]['message']['content'].strip()
+        response = client.chat.completions.create(model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": "You are an AI assistant for KC-7, a company that offers AI services tailored for businesses. You have comprehensive knowledge about KC-7's website, services, and offerings. Provide accurate and helpful information to users based on their queries."},
+            {"role": "user", "content": user_message}
+        ],
+        max_tokens=150,
+        temperature=0.7)
+        chatbot_response = response.choices[0].message.content.strip()
     except openai.OpenAIError as e:
         app.logger.error(f"OpenAI API Error: {e}")
         chatbot_response = "Sorry, there was an error processing your request."
