@@ -6,8 +6,6 @@ import math
 from flask import Flask, render_template, jsonify, request, redirect, url_for, flash
 from flask_mail import Mail, Message
 from openai import OpenAI
-
-client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email, Length
@@ -24,10 +22,13 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY")
 
 # Configure Flask-Mail using environment variables
-app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER', 'smtp.your-email-provider.com')
+app.config['MAIL_SERVER'] = os.environ.get(
+    'MAIL_SERVER', 'smtp.your-email-provider.com')
 app.config['MAIL_PORT'] = int(os.environ.get('MAIL_PORT', 465))
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME', 'your-email@example.com')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD', 'your-email-password')
+app.config['MAIL_USERNAME'] = os.environ.get(
+    'MAIL_USERNAME', 'your-email@example.com')
+app.config['MAIL_PASSWORD'] = os.environ.get(
+    'MAIL_PASSWORD', 'your-email-password')
 app.config['MAIL_USE_TLS'] = os.environ.get('MAIL_USE_TLS', False)
 app.config['MAIL_USE_SSL'] = os.environ.get('MAIL_USE_SSL', True)
 
@@ -36,11 +37,16 @@ mail = Mail(app)
 # Configure OpenAI
 
 # Define WTForms for Contact Form
+
+
 class ContactForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(max=50)])
-    email = StringField('Email', validators=[DataRequired(), Email(), Length(max=120)])
+    email = StringField('Email', validators=[
+                        DataRequired(), Email(), Length(max=120)])
     phone = StringField('Phone', validators=[Length(max=20)])
-    message = TextAreaField('Message', validators=[DataRequired(), Length(max=500)])
+    message = TextAreaField('Message', validators=[
+                            DataRequired(), Length(max=500)])
+
 
 # Enforce HTTPS only if not in testing mode
 if not app.config.get("TESTING"):
@@ -53,13 +59,16 @@ limiter = Limiter(
     default_limits=["200 per day", "50 per hour"]
 )
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
 
+
 @app.route("/about")
 def about():
     return render_template("about.html", page_title="About")
+
 
 @app.route("/about/<member_name>")
 def about_member(member_name):
@@ -74,6 +83,7 @@ def about_member(member_name):
     except FileNotFoundError:
         flash("Company data file not found.", "danger")
     return render_template("member.html", member=member)
+
 
 @app.route('/submit-contact-form', methods=['POST'])
 def submit_contact_form():
@@ -92,25 +102,31 @@ def submit_contact_form():
             mail.send(msg)
             flash('Your message has been sent successfully!', 'success')
         except Exception as e:
-            flash('There was an error sending your message. Please try again later.', 'danger')
+            flash(
+                'There was an error sending your message. Please try again later.', 'danger')
     else:
         # Collect form errors
         for field, errors in form.errors.items():
             for error in errors:
-                flash(f"Error in {getattr(form, field).label.text}: {error}", 'danger')
+                flash(
+                    f"Error in {getattr(form, field).label.text}: {error}", 'danger')
 
     return redirect('/contact')
+
 
 @app.route("/contact", methods=["GET", "POST"])
 def contact():
     form = ContactForm()
     return render_template("contact.html", page_title="Contact", form=form)
 
+
 @app.route("/services")
 def services():
     return render_template("services.html", page_title="Services")
 
 # Function to load blog data from JSON file
+
+
 def load_blog_data():
     try:
         with open('static/data/blog.json') as f:
@@ -120,6 +136,8 @@ def load_blog_data():
         return []
 
 # Blog listing with pagination
+
+
 @app.route('/blog')
 def blog_list():
     page = int(request.args.get('page', 1))
@@ -141,6 +159,8 @@ def blog_list():
     return render_template('blog_list.html', blogs=paginated_blogs, page=page, total_pages=total_pages, sort=sort, max=max, min=min)
 
 # Individual blog post
+
+
 @app.route('/blog/<slug>')
 def blog_post(slug):
     blogs = load_blog_data()
@@ -152,6 +172,11 @@ def blog_post(slug):
         return redirect(url_for('blog_list'))
 
 # Chatbot
+
+
+client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+
+
 @app.route("/chatbot", methods=["POST"])
 @limiter.limit("5 per minute")  # Apply rate limiting to the chatbot route
 def chatbot():
@@ -161,12 +186,14 @@ def chatbot():
 
     try:
         response = client.chat.completions.create(model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are an AI assistant for KC-7, a company that offers AI services tailored for businesses. You have comprehensive knowledge about KC-7's website, services, and offerings. Provide accurate and helpful information to users based on their queries."},
-            {"role": "user", "content": user_message}
-        ],
-        max_tokens=150,
-        temperature=0.7)
+                                                  messages=[
+                                                      {"role": "system",
+                                                       "content": "You are KC-7's Assistant, a highly knowledgeable and professional virtual assistant. Your goal is to assist users in navigating the KC-7 website and understanding its range of AI services. Provide clear information on AI consulting, custom AI development, and AI integration services, including chatbots, content creation, and custom solutions. Encourage clients to engage by recommending direct contact through email (k@kc-7.com) or the contact form. Guide users to relevant sections, such as case studies, testimonials, and service details. Ensure all responses are aligned with KC-7’s offerings and advise clients on how AI can address their business challenges. Maintain a friendly, professional tone, and focus on promoting KC-7 as the ideal partner for AI solutions. Avoid personal opinions or unrelated information, focusing solely on KC-7's expertise and the business benefits of its services."},
+                                                      {"role": "user",
+                                                          "content": user_message}
+                                                  ],
+                                                  max_tokens=150,
+                                                  temperature=0.7)
         chatbot_response = response.choices[0].message.content.strip()
     except openai.OpenAIError as e:
         app.logger.error(f"OpenAI API Error: {e}")
@@ -180,9 +207,11 @@ def chatbot():
 def page_not_found(e):
     return render_template('404.html'), 404
 
+
 @app.errorhandler(500)
 def internal_server_error(e):
     return render_template('500.html'), 500
+
 
 if __name__ == "__main__":
     app.run(
