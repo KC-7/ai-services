@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error | KC-7 &trade;{% endblock %}
+
+{% block content %}
+<section id="error-500" class="py-5 text-center">
+    <div class="container">
+        <h1 class="display-4">500</h1>
+        <p class="lead">Sorry! Something went wrong on our end.</p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Return Home</a>
+    </div>
+</section>
+{% endblock %}

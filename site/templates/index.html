@@ -9,7 +9,7 @@
         <h1 class="display-4">Transform Your Business with AI</h1>
         <p class="lead">Innovative AI solutions to drive efficiency, growth, and customer satisfaction, tailored for small and medium businesses.</p>
         <img class="img-fluid mt-5 rounded-3 w-75" src="{{url_for('static', filename='img/index/ai1.jpeg')}}" alt="AI Solutions Image">
-        <a href="/services" class="btn btn-primary btn-lg mt-4 px-5">Discover Our AI Services</a>
+        <a href="{{ url_for('services') }}" class="btn btn-primary btn-lg mt-4 px-5">Discover Our AI Services</a>
     </div>
 </section>
 
@@ -32,7 +32,7 @@
                     <li>Scale faster and smarter with AI-driven tools for growth.</li>
                     <li>Unlock insights from big data to drive innovation and business success.</li>
                 </ul>
-                <a href="/contact" class="btn btn-primary mt-4">Get a Free Consultation</a>
+                <a href="{{ url_for('contact') }}" class="btn btn-primary mt-4">Get a Free Consultation</a>
             </div>
             <div class="col-md-6 text-center">
                 <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/ai2.jpeg')}}" alt="AI Benefits Image">
@@ -47,21 +47,21 @@
         <h2 class="text-center">What Our Clients Are Saying</h2>
         <div class="row">
             <div class="col-md-4 text-center">
-                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/person1.jpeg')}}" alt="Why Choose Me">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/person1.jpeg')}}" alt="Client Sarah P.">
                 <blockquote class="blockquote">
                     <p>"Kieran's AI solutions have transformed our business. We've saved hours of manual work every week."</p>
                     <footer class="blockquote-footer">Sarah P., Small Business Owner</footer>
                 </blockquote>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/person2.jpeg')}}" alt="Why Choose Me">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/person2.jpeg')}}" alt="Client John D.">
                 <blockquote class="blockquote">
                     <p>"Our customer support is now faster, more efficient, and we're seeing real results."</p>
                     <footer class="blockquote-footer">John D., Startup Founder</footer>
                 </blockquote>
             </div>
             <div class="col-md-4 text-center">
-                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/person3.jpeg')}}" alt="Why Choose Me">
+                <img class="img-fluid px-5 rounded-circle" src="{{url_for('static', filename='img/index/person3.jpeg')}}" alt="Client Emily R.">
                 <blockquote class="blockquote">
                     <p>"The AI solutions provided by Kieran helped us automate our processes seamlessly."</p>
                     <footer class="blockquote-footer">Emily R., E-commerce Owner</footer>
@@ -76,7 +76,7 @@
     <div class="container">
         <h2 class="display-5">Ready to Scale Your Business?</h2>
         <p class="lead">Book a free consultation and discover how AI can transform your business.</p>
-        <a href="/contact" class="btn btn-primary btn-lg">Schedule Now</a>
+        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Schedule Now</a>
     </div>
 </section>
 {% endblock %}
