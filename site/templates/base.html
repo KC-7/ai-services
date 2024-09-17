@@ -105,25 +105,45 @@
                     <!-- Year Displayed Here --></span> | Remote AI Services</small></div>
     </div>
 
-    <!-- Chatbot Button -->
-    <div id="chatbot-button" onclick="openChatbot()" aria-label="Open Chatbot" role="button" tabindex="0">
-        <i class="fas fa-robot"></i>
-    </div>
+    <!-- Chatbot Button to open a new chat (visible by default) -->
+    <button onclick="openChatbot()" id="chatbot-open-btn" class="chatbot-btn teal-btn">
+        <i class="fas fa-comment"></i> <!-- FontAwesome chat icon for new chat -->
+    </button>
+
+    <!-- Chatbot Button to open minimized chat (hidden by default) -->
+    <button onclick="openChatbot()" id="chatbot-minimized-btn" class="chatbot-btn purple-btn" style="display: none;">
+        <i class="fas fa-comment-dots"></i> <!-- FontAwesome icon for minimized chat -->
+    </button>
 
     <!-- Chatbot Modal -->
-    <div id="chatbot-modal" class="chatbot-modal" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
-        <div class="chatbot-modal-content">
-            <span class="chatbot-close" onclick="closeChatbot()" aria-label="Close Chatbot">&times;</span>
-            <h2 class="text-light" id="chatbot-title">AI Assistant</h2>
-            <div id="chatbot-messages" aria-live="polite"></div>
-            <input type="text" id="chatbot-input" placeholder="Type your message..." onkeypress="sendMessage(event)"
-                aria-label="Chatbot Input">
+    <div id="chatbot-modal" class="chatbot-modal">
+        <div class="chatbot-header">
+            <span id="chatbot-title">KC-7's Assistant</span>
+            <!-- Minimize button -->
+            <button id="minimize-btn" onclick="minimizeChatbot()">
+                <i class="fas fa-minus"></i>
+            </button>
+            <!-- Toggle size button -->
+            <button id="toggle-maximize" onclick="toggleMaximizeChatbot()">
+                <i class="fas fa-expand"></i>
+            </button>
+            <!-- Close button -->
+            <button onclick="closeChatbot()" class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chatbot-messages" class="chatbot-messages"></div>
+        <div class="chatbot-footer">
+            <input id="chatbot-input" type="text" placeholder="Type your message here..." onkeydown="sendMessage(event)">
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+    <!-- Render Markdown for AI Responses -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
