@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}AI Blog | Insights and Trends{% endblock %}
+{% block title %}Blog{% endblock %}
 
 {% block content %}
-<section id="blog-hero" class="text-center py-5 bg-light">
+<section id="blog-hero" class="text-center py-5 bg-light rounded-3">
     <div class="container">
         <h1 class="display-4">AI Blog</h1>
         <p class="lead">Stay informed with the latest insights, trends, and guides on AI for small businesses.</p>
@@ -23,15 +23,16 @@
             </div>
         </div>
 
+        <!-- Blog Posts List -->
         {% for blog in blogs %}
-        <div class="row mb-5 align-items-center">
+        <div class="row align-items-center">
             <div class="col-md-4 px-2">
                 <img class="img-fluid rounded" src="{{ blog.image }}" alt="{{ blog.title }}" style="max-width:100%;">
             </div>
             <div class="col-md-8 px-2">
                 <h2><a href="{{ url_for('blog_post', slug=blog.slug) }}">{{ blog.title }}</a></h2>
                 <p>{{ blog.content[0]['text'][:500] }}{% if blog.content[0]['text']|length > 200 %}...{% endif %}</p>
-                <a href="{{ url_for('blog_post', slug=blog.slug) }}" class="btn btn-primary">Read More</a>
+                <a href="{{ url_for('blog_post', slug=blog.slug) }}" class="btn btn-primary float-end">Read More</a>
             </div>
         </div>
         {% endfor %}

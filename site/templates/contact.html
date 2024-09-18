@@ -1,32 +1,42 @@
 {% extends "base.html" %}
 
-{% block title %}Contact Us | KC-7 &trade;{% endblock %}
+{% block title %}Contact Us{% endblock %}
 
 {% block content %}
-<section id="contact" class="py-5">
+<section id="contact" class="py-5 bg-light rounded-3">
     <div class="container">
-        <h1 class="text-center mb-4">Contact Us</h1>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+        <h1 class="text-center mb-2">Contact Us</h1>
+        <div class="row justify-content-center pb-0">
+            <div class="col-md-9 col-12 pb-0">
                 <form action="{{ url_for('submit_contact_form') }}" method="POST">
                     {{ form.hidden_tag() }}
-                    <div class="mb-3">
-                        {{ form.name.label(class="form-label") }}
-                        {{ form.name(class="form-control", placeholder="Your Name") }}
+                    
+                    <!-- Name Field -->
+                    <div class="form-group pt-0">
+                        {{ form.name.label(class="form-label custom-form-label") }}  <!-- Custom label class -->
+                        {{ form.name(class="form-control custom-form-field", placeholder="Your Name") }}
                     </div>
-                    <div class="mb-3">
-                        {{ form.email.label(class="form-label") }}
-                        {{ form.email(class="form-control", placeholder="Your Email") }}
+                    
+                    <!-- Email Field -->
+                    <div class="form-group pt-0">
+                        {{ form.email.label(class="form-label custom-form-label") }}  <!-- Custom label class -->
+                        {{ form.email(class="form-control custom-form-field", placeholder="Your Email") }}
                     </div>
-                    <div class="mb-3">
-                        {{ form.phone.label(class="form-label") }}
-                        {{ form.phone(class="form-control", placeholder="Your Phone (Optional)") }}
+                    
+                    <!-- Phone Field -->
+                    <div class="form-group pt-0">
+                        {{ form.phone.label(class="form-label custom-form-label") }}  <!-- Custom label class -->
+                        {{ form.phone(class="form-control custom-form-field", placeholder="Your Phone (Optional)") }}
                     </div>
-                    <div class="mb-3">
-                        {{ form.message.label(class="form-label") }}
-                        {{ form.message(class="form-control", rows="5", placeholder="Your Message") }}
+                    
+                    <!-- Message Field -->
+                    <div class="form-group pt-0">
+                        {{ form.message.label(class="form-label custom-form-label") }}  <!-- Custom label class -->
+                        {{ form.message(class="form-control custom-form-field", rows="5", placeholder="Your Message") }}
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary custom-form-button">Send Message</button>  <!-- Custom button class -->
                 </form>
             </div>
         </div>

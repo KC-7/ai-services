@@ -52,11 +52,13 @@ class ContactForm(FlaskForm):
 if not app.config.get("TESTING"):
     Talisman(app, content_security_policy=None)
 
+
 # Initialize Flask-Limiter
 limiter = Limiter(
     app=app,
     key_func=get_remote_address,
-    default_limits=["200 per day", "50 per hour"]
+    default_limits=[]
+    # default_limits=["100 per day", "25 per hour"]
 )
 
 

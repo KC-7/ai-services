@@ -13,6 +13,26 @@
   padding: 0;
 }
 
+/* Custom styles for form elements */
+.custom-form-field {
+  max-width: 85%;            /* Set the max width to 85% */
+  margin-left: auto;         /* Center the form elements */
+  margin-right: auto;        /* Center the form elements */
+  display: block;            /* Ensure form elements take up the width */
+}
+
+/* Align labels with the input fields */
+.custom-form-label {
+  margin-left: 7.5%;         /* Align labels 7.5% from the left */
+}
+
+/* Align the Send Message button to the right */
+.custom-form-button {
+  max-width: 85%;            /* Keep button within 85% width of the form */
+  margin-right: 7.5%;        /* Align button 7.5% from the right */
+  float: right;              /* Align button to the right */
+}
+
 /* Center images horizontally and vertically */
 .image-container {
   display: flex;
@@ -262,7 +282,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   overflow: hidden;
-  border: 1px solid #ccc;
+  border: 2px solid #2c3e50;
 }
 
 .chatbot-modal.maximized {
